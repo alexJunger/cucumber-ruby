@@ -147,6 +147,10 @@ module Cucumber
       @options[:filters]
     end
 
+    def only_load_files_once
+      @options[:only_load_files_once]
+    end
+
     def feature_files
       potential_feature_files = with_default_features_path(paths).map do |path|
         path = path.tr('\\', '/') # In case we're on windows. Globs don't work with backslashes.
@@ -261,7 +265,8 @@ module Cucumber
         snippets: true,
         source: true,
         duration: true,
-        event_bus: Cucumber::Events.make_event_bus
+        event_bus: Cucumber::Events.make_event_bus,
+        only_load_files_once: false
       }
     end
 
