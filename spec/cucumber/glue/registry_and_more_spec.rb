@@ -28,7 +28,7 @@ module Cucumber
           end
         end
 
-        it 're-loads the file when called multiple times' do
+        it 'does not reload the file when called multiple times' do
           a_file_called('tmp.rb') do
             '$foo = 1'
           end
@@ -42,7 +42,7 @@ module Cucumber
 
           registry.load_code_file('tmp.rb')
 
-          expect($foo).to eq 2
+          expect($foo).to eq 1
         end
 
         it 'only loads ruby files' do

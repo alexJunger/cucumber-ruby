@@ -104,7 +104,7 @@ module Cucumber
 
       def load_code_file(code_file)
         return unless File.extname(code_file) == '.rb'
-        load File.expand_path(code_file) # This will cause self.add_step_definition, self.add_hook, and self.define_parameter_type to be called from Glue::Dsl
+        require File.expand_path(code_file) # This will cause self.add_step_definition, self.add_hook, and self.define_parameter_type to be called from Glue::Dsl
       end
 
       def begin_scenario(test_case)
